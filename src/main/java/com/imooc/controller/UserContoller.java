@@ -56,4 +56,9 @@ public class UserContoller {
 		
 		return IMoocJSONResult.ok(u);
 	}
+
+	@RequestMapping("/hello")
+	public String hello() {
+		return "helloword";
+	}
 }
