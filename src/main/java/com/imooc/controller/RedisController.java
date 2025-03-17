@@ -76,4 +76,35 @@ public class RedisController {
 		
 		return IMoocJSONResult.ok(userListBorn);
 	}
+
+	@RequestMapping("/setJsonList")
+	public IMoocJSONResult setJsonList() {
+
+		User user = new User();
+		user.setAge(18);
+		user.setName("慕课网");
+		user.setPassword("123456");
+		user.setBirthday(new Date());
+
+		User u1 = new User();
+		u1.setAge(19);
+		u1.setName("imooc");
+		u1.setPassword("123456");
+		u1.setBirthday(new Date());
+
+		User u2 = new User();
+		u2.setAge(17);
+		u2.setName("hello imooc");
+		u2.setPassword("123456");
+		u2.setBirthday(new Date());
+
+		List<User> userList = new ArrayList<>();
+		userList.add(user);
+		userList.add(u1);
+		userList.add(u2);
+
+		redis.set("json:info:userlist", JsonUtils.objectToJson(userList), 2000);
+
+		return IMoocJSONResult.ok();
+	}
 }

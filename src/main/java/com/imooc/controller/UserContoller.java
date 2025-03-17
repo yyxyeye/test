@@ -28,6 +28,20 @@ public class UserContoller {
 		
 		return u;
 	}
+
+	@RequestMapping("/setUser")
+//	@ResponseBody
+	public User setUser() {
+
+		User u = new User();
+		u.setName("imooc2");
+		u.setAge(18);
+		u.setBirthday(new Date());
+		u.setPassword("imooc2");
+		u.setDesc("hello imooc2~~");
+
+		return u;
+	}
 	
 	@RequestMapping("/getUserJson")
 //	@ResponseBody
